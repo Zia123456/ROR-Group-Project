@@ -1,6 +1,6 @@
 class ShoppingListsController < ApplicationController
   def index
-    @recipes = Recipe.all
+    @recipes = Recipe.where(author_id: current_user.id)
     @ingredients = RecipeFood.where(recipe_id: @recipes.map(&:id))
     @foods = Food.where(id: @ingredients.map(&:food_id))
   end

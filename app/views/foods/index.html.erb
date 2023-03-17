@@ -25,7 +25,11 @@
         <td class='foods-table'><%= food.name %></td>
         <td class='foods-table'><%= food.measurement_unit %></td>
         <td class='foods-table'><%= food.price %></td>
-        <td class='foods-table'><%= link_to "Delete", food_path(food.id), data: { turbo_method: :delete, turbo_confirm: "Are you sure you want to delete #{food.name}?" } %></td>
+        <td class='foods-table'>
+          <% if can? :manage, food%>
+            <%= link_to "Delete", food_path(food.id), data: { turbo_method: :delete, turbo_confirm: "Are you sure you want to delete #{food.name}?" } %>
+          <% end %>  
+        </td>
       </tr>
     <% end %>
   </tbody>

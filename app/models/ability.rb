@@ -13,6 +13,9 @@ class Ability
     can :manage, RecipeFood do |ingredient|
       ingredient.recipe.author == user
     end
+
+    can :manage, Food, author: user
+    can :read, :all
     # The first argument to `can` is the action you are giving the user
     # permission to do.
     # If you pass :manage it will apply to every action. Other common actions

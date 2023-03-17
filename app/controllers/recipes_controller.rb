@@ -45,6 +45,10 @@ class RecipesController < ApplicationController
     end
   end
 
+  def public
+    @public_recipes = Recipe.where(public: true)
+  end
+
   def destroy
     @recipe = Recipe.find(params[:id])
     @recipe.destroy

@@ -1,0 +1,21 @@
+<h1 class=""></h1>public recipes</h1>
+<table class="">
+  <thead>
+    <tr>
+      <th >recipe</th>
+      <th >total food Items</th>
+      <th >total price</th>
+      <th >created by</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @public_recipes.each do |recipe| %>
+      <tr>
+        <td><%= recipe.name  %></td>
+        <td><%= RecipeFood.where(recipe_id: recipe.id).count %></td>
+        <td><%=  RecipeFood.where(recipe_id: recipe.id).reduce(0) { |sum, f| sum + (f.quantity*Food.find(f.food_id).price).to_f }  %></td>
+        <td><%= User.find_by(id: recipe.author_id).name  %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

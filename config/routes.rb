@@ -4,10 +4,10 @@ Rails.application.routes.draw do
   devise_for :users
   resources :foods, only: %i[index new create destroy]
   resources :recipes, only: %i[index new create show update edit destroy]
-  resources :inventories, only: [:index]
+  resources :inventories, only: %i[index show new create destroy]
   resources :shopping_lists, only: [:index]
   # resources :recipe_foods, only: [:index]
-  resources :recipe_foods, only: [:create, :destroy]
+  resources :recipe_foods, only: %i[create destroy]
   get '/public_recipes', to: 'recipes#public'
   resources :shopping_lists, only: %i[index]
   # Defines the root path route ("/")

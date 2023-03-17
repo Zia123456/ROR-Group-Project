@@ -6,7 +6,8 @@ Rails.application.routes.draw do
   resources :recipes, only: %i[index new create show update edit destroy]
   resources :inventories, only: [:index]
   resources :shopping_lists, only: [:index]
-  resources :recipe_foods, only: [:index]
+  # resources :recipe_foods, only: [:index]
+  resources :recipe_foods, only: [:create, :destroy]
   get '/public_recipes', to: 'recipes#public'
   # Defines the root path route ("/")
   # root "articles#index"

@@ -65,3 +65,9 @@
 .btn-primary {
   margin-top: 20px;
 }
+.block{
+  display: block;
+}
+.none{
+  display: none;
+}

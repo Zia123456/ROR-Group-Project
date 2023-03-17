@@ -1,13 +1,12 @@
 class RecipeFoodsController < ApplicationController
-  def index; end
+  def destory; end
 
-  def show; end
-
-  def new; end
-
-  def create; end
-
-  def edit; end
-
-  def destroy; end
+  def create
+    recipe_foods = RecipeFood.new(quantity: params[:quantity])
+    recipe_foods.food_id = params[:food_id]
+    recipe_foods.recipe_id = params[:recipe_id]
+    recipe_foods.save
+    redirect_to recipe_path(params[:recipe_id])
+    flash[:notice] = 'igredient added'
+  end
 end

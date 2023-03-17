@@ -1,2 +1,24 @@
-<h1>Recipes#index</h1>
-<p>Find me in app/views/recipes/index.html.erb</p>
+<div>
+  <% if flash[:notice] %>
+    <p class="" role="alert"><%= notice %></p>
+  <% end %>
+  <div class="">
+    <h1>recipes</h1>
+    <div>
+      <%= link_to "add recipe", new_recipe_path, class: "" %>
+    </div>
+  </div>
+  <div id="">
+    <table class="">
+      <%= render partial: "recipe_header"  %>
+      <tbody>
+        <% @recipes.each do |recipe| %>
+          <tr>
+            <%= render recipe %>
+            <td><%= link_to "display", recipe_path(recipe.id), class: "" %></td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
+</div>

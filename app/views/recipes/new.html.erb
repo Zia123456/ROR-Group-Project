@@ -1,2 +1,6 @@
-<h1>Recipes#new</h1>
-<p>Find me in app/views/recipes/new.html.erb</p>
+<h1>New recipe</h1>
+<%= render "form", recipe: @recipe %>
+<br>
+<div>
+  <%= link_to "back", recipes_path, class: ""%>
+</div>

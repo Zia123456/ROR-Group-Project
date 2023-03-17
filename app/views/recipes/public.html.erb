@@ -1,5 +1,5 @@
-<h1 class=""></h1>public recipes</h1>
-<table class="">
+<h1 class="one"></h1>public recipes</h1>
+<table class="two">
   <thead>
     <tr>
       <th >recipe</th>
@@ -15,6 +15,7 @@
         <td><%= RecipeFood.where(recipe_id: recipe.id).count %></td>
         <td><%=  RecipeFood.where(recipe_id: recipe.id).reduce(0) { |sum, f| sum + (f.quantity*Food.find(f.food_id).price).to_f }  %></td>
         <td><%= User.find_by(id: recipe.author_id).name  %></td>
+           <td><%= button_to "delete", recipe, method: :delete, class: ""%></td>
       </tr>
     <% end %>
   </tbody>

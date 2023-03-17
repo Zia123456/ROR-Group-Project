@@ -1,15 +1,27 @@
-<div>
-  <% if flash[:notice] %>
-    <p class="" role="alert"><%= notice %></p>
-  <% end %>
-  <table class="">
-    <%= render partial: "recipe_header" %>
-    <tbody>
-      <%= render @recipe %>
-      <td class=""><%= link_to "edit", edit_recipe_path(@recipe), class: "" %>  <%= button_to "delete", @recipe, method: :delete, class: ""%></td>
-    </tbody>
-  </table>
-  <div>
-    <%= link_to "go to the recipes", recipes_path, class: ""%>
+<div class="">
+    <div class="">
+      <h5 class=""><%= @recipe.name %> recipe</h5>
+      <div class="">
+        <div>
+          <p class="">Description: <%= @recipe.description %></p>
+          <p class="">Cooking time: <%= @recipe.cooking_time %></p>
+          <p class="">Preparation time: <%= @recipe.preparation_time %></p>
+        </div>
+        <div class="">
+          <%= form_with(model: @recipe) do |form| %>
+            <%= form.check_box :public,onchange: 'this.form.submit();',class:""%>
+            <label class="" for="flexSwitchCheckDefault">public</label>
+          <% end %>
+          <div class=""><%= link_to "edit", edit_recipe_path(@recipe), class: "wow1" %>  <%= button_to "delete", @recipe, method: :delete %></div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="">
+    <%= link_to " go to recipes", recipes_path, class: ""%>
+    <button class="" onclick="(() => {
+      document.getElementById('toggleModel').classList.remove('none')
+      })()">add ingredient</button>
   </div>
 </div>
+<%= render partial: "recipe_foods/recipe_food_form" %>

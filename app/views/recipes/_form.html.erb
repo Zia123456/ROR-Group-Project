@@ -1,0 +1,40 @@
+<%= form_with(model: recipe) do |form| %>
+  <% if recipe.errors.any? %>
+    <div>
+      <h2>you can not update the recipe</h2>
+      <ul>
+        <% recipe.errors.each do |error| %>
+          <li class="" role="alert"><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+  <div class="">
+    <%= form.label :name %>
+    <%= form.text_field :name, class: "", placeholder: "enter name" %>
+  </div>
+  <br>
+  <div class="">
+    <%= form.label :preparation_time %>
+    <%= form.text_field :preparation_time, class: "", placeholder: "enter preparation time" %>
+  </div>
+  <br>
+  <div class="">
+    <%= form.label :cooking_time %>
+    <%= form.text_field :cooking_time, class: "", placeholder: "enter cooking time" %>
+  </div>
+  <br>
+  <div class="">
+    <%= form.label :description %>
+    <%= form.text_area :description, class: "", placeholder: "enter description", rows:"10" %>
+  </div>
+  <br>
+  <div class="">
+    <%= form.check_box :public ,class: ""%>
+    <%= form.label :public, class:"" %>
+  </div>
+  <br>
+  <div>
+    <%= form.submit %>
+  </div>
+<% end %>

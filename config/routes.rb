@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
   root 'foods#index'
-
+  devise_for :users
   resources :foods, only: %i[index new create destroy]
   resources :recipes, only: [:index]
   resources :inventories, only: [:index]

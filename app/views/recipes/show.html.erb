@@ -1,27 +1,59 @@
-<div class="">
-    <div class="">
-      <h5 class=""><%= @recipe.name %> recipe</h5>
-      <div class="">
+<div>
+  <% if flash[:notice] %>
+    <p role="alert"><%= notice %></p>
+  <% end %>
+  <div>
+    <div >
+      <h5><%= @recipe.name.capitalize %> recipe</h5>
+      <div >
         <div>
-          <p class="">Description: <%= @recipe.description %></p>
-          <p class="">Cooking time: <%= @recipe.cooking_time %></p>
-          <p class="">Preparation time: <%= @recipe.preparation_time %></p>
+          <p>Description: <%= @recipe.description %></p>
+          <p><small>Cooking time: <%= @recipe.cooking_time %></small></p>
+          <p><small>Preparation time: <%= @recipe.preparation_time %></small></p>
         </div>
-        <div class="">
-          <%= form_with(model: @recipe) do |form| %>
-            <%= form.check_box :public,onchange: 'this.form.submit();',class:""%>
-            <label class="" for="flexSwitchCheckDefault">public</label>
+        <div>
+          <% if can? :manage, @recipe %>
+            <%= form_with(model: @recipe) do |form| %>
+              <%= form.check_box :public,onchange: 'this.form.submit();'%>
+              <label for="flexSwitchCheckDefault">public</label>
+            <% end %>
+            <div><%= link_to "Edit", edit_recipe_path(@recipe) %>  <%= button_to "Destroy", @recipe, method: :delete%></div>
           <% end %>
-          <div class=""><%= link_to "edit", edit_recipe_path(@recipe), class: "wow1" %>  <%= button_to "delete", @recipe, method: :delete %></div>
         </div>
       </div>
     </div>
   </div>
-  <div class="">
-    <%= link_to " go to recipes", recipes_path, class: ""%>
-    <button class="" onclick="(() => {
-      document.getElementById('toggleModel').classList.remove('none')
-      })()">add ingredient</button>
+  <div>
+    <%= link_to " Back to recipes", recipes_path%>
+    <% if can? :manage, @recipe%>
+      <button  onclick="(() => {
+        document.getElementById('toggleModel').classList.remove('none')
+        })()">Add ingredient</button>
+    <% else %>
+      <button  disabled  onclick="(() => {
+        document.getElementById('toggleModel').classList.remove('none')
+        })()">Add ingredient</button>
+    <% end %>
+  </div>
+  <div>
+    <div>
+      <h3>ingredients</h3>
+    </div>
+    <div>
+      <table>
+        <thead>
+          <tr>
+            <th>Food</th>
+            <th>Quantity</th>
+            <th>Price</th>
+            <th>Action</th>
+          </tr>
+        </thead>
+        <tbody>
+          <%# <%= render "shopping_lists/shopping_list" %>
+        </tbody>
+      </table>
+    </div>
   </div>
 </div>
 <%= render partial: "recipe_foods/recipe_food_form" %>

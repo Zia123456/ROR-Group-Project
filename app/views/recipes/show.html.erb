@@ -1,2 +1,15 @@
-<h1>Recipes#show</h1>
-<p>Find me in app/views/recipes/show.html.erb</p>
+<div>
+  <% if flash[:notice] %>
+    <p class="" role="alert"><%= notice %></p>
+  <% end %>
+  <table class="">
+    <%= render partial: "recipe_header" %>
+    <tbody>
+      <%= render @recipe %>
+      <td class=""><%= link_to "edit", edit_recipe_path(@recipe), class: "" %>  <%= button_to "delete", @recipe, method: :delete, class: ""%></td>
+    </tbody>
+  </table>
+  <div>
+    <%= link_to "go to the recipes", recipes_path, class: ""%>
+  </div>
+</div>

@@ -1,7 +1,6 @@
 class InventoryFoodsController < ApplicationController
   def destroy
     @inventory_food = InventoryFood.find_by(id: params[:food_id])
-
     if @inventory_food.destroy
       flash[:notice] = 'Inventory food deleted!'
     else

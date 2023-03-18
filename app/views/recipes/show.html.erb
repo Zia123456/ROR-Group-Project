@@ -50,7 +50,22 @@
           </tr>
         </thead>
         <tbody>
-          <%= render "shopping_lists/shopping_list" %>
+        <div class='recipe-food-container'> 
+        <% @foods.each do |food| %>
+          <tr>
+            <% quantity = RecipeFood.joins(:food).where(food_id: food.id).sum('quantity') %>
+              <td><%= food.name %></td>
+              <td><%= quantity %> <%= food.measurement_unit %> </td>
+              <td>$ <%= food.price * quantity %></td>
+              <td> 
+              <%= link_to "Delete", recipe_food_path(2), method: :delete, data: { confirm: "Are you sure?" } %>
+
+
+              </td>
+            
+          </tr>
+        <% end %>
+      </div>
         </tbody>
       </table>
     </div>

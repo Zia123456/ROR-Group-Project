@@ -1,6 +1,6 @@
 <div class="none" id="toggleModel">
-  <div class="">
-    <div class="">
+  <div class="recipe-foods">
+    <div class="ingredient">
       Add Ingredient
     </div>
     <%= form_with url: recipe_foods_path({recipe_id: @recipe.id}) do |form|%>
@@ -25,3 +25,4 @@
     <%end%>
   </div>
 </div>
+

@@ -1,19 +1,19 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>RORGroupProject</title>
+    <title></title>
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
-    <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
+    <%= stylesheet_link_tag "application" %>
     <%= javascript_importmap_tags %>
     <%= stylesheet_link_tag 'application' %>
   </head>
   <body>
     <% if current_user %>
-      <%= render partial: "shared/navbar" %>
+      <%= render partial: "common/header" %>
     <% end %>
-    <%= render partial: "shared/flash" %>
+    <%= render partial: "common/msg" %>
     <%= yield %>
   </body>
 </html>

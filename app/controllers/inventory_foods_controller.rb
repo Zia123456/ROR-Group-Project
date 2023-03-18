@@ -2,9 +2,9 @@ class InventoryFoodsController < ApplicationController
   def destroy
     @inventory_food = InventoryFood.find_by(id: params[:food_id])
     if @inventory_food.destroy
-      flash[:notice] = 'Inventory food deleted!'
+      flash[:notice] = 'nventory delet'
     else
-      flash[:alert] = 'Error! Please try again later.'
+      flash[:alert] = 'Please try again'
     end
     redirect_to inventory_path(params[:id])
   end
@@ -24,7 +24,7 @@ class InventoryFoodsController < ApplicationController
                                              inventory_id: params[:id])
       new_inventory_food.save
     end
-    redirect_to inventory_path(params[:id]), flash: { success: 'Inventory food has been added successfully!' }
+    redirect_to inventory_path(params[:id]), flash: { success: 'nventory add successfully!' }
   end
 
   def inventory_food_params

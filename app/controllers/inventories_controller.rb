@@ -20,9 +20,9 @@ class InventoriesController < ApplicationController
   def destroy
     @inventory = Inventory.find_by(id: params[:id])
     if @inventory.destroy
-      flash[:notice] = 'Inventory deleted!'
+      flash[:notice] = 'dlete inventory'
     else
-      flash[:alert] = 'Error! Please try again later.'
+      flash[:alert] = 'try'
     end
     redirect_to inventories_path
   end

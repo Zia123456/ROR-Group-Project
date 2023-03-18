@@ -2,11 +2,11 @@ require 'rails_helper'
 
 RSpec.describe InventoryFood, type: :model do
   before :each do
-    @user = User.new(name: 'Test', email: 'test@test.com', password: 123_456, password_confirmation: 123_456)
+    @user = User.new(name: 'userTEst', email: 'usesrTest@test.com', password: 123_456, password_confirmation: 123_456)
     @user.skip_confirmation!
     @user.save
-    @inventory = Inventory.create(name: 'inv1', description: 'test', user_id: @user.id)
-    @food = Food.create(name: 'pasta', measurement_unit: 'gramme', price: 20, author_id: @user.id)
+    @inventory = Inventory.create(name: 'firstIv', description: 'test', user_id: @user.id)
+    @food = Food.create(name: 'Pizza', measurement_unit: 'slice', price: 25)
   end
 
   it 'is valid' do

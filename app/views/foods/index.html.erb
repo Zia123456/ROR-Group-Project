@@ -1,0 +1,26 @@
+<div class="foods-container" >
+  <h1>List of foods</h1>
+  <%= link_to 'Add Food',new_food_path, class:"link btn-add-food"%>
+
+<table  class="table-container table">
+  <thead class="table">
+    <tr class="table">
+      <th class="table">Food </th>
+      <th class="table">Measurement unit </th>
+      <th class="table">Unit price </th>
+      <th class="table">Actions </th>
+    </tr>
+  </thead>
+  <tbody class="table">
+  <% @foods.each do |food|%>
+    <tr class="table">
+      <td class="table"> <%= food.name%></td>
+      <td class="table"> <%= food.measurement_unit%></td>
+      <td class="table"> $ <%= food.price%></td>
+      <td class="table"><%= button_to 'delete', food_path(food.id), method: :delete, class:"btn-delete"%></td>
+    </tr>
+  <%end%>
+  </tbody>
+</table>
+
+</div>

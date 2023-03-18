@@ -1,0 +1,21 @@
+<div class="add-inventory-container">
+  <h1>Create a new inventory:</h1>
+  <%= form_with model: @inventory, url: inventories_path, method: :post, :html => {:class => "form"} do |form| %>
+    <div class="input-container">
+      <%= form.label :name, 'Name', class: "form-label" %>
+      <%= form.text_field :name, class:"form-control" %>
+    </div>
+    <div class="input-container">
+      <%= form.label :description, 'Description', class: "form-label" %>
+      <%= form.text_area :description, class:"form-control" %>
+    </div>
+    <%= form.submit 'Create inventory', class: "btn-submit-inventory" %>
+  <% end %>
+</div>
+
+
+
+
+
+
+

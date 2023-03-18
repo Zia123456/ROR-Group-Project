@@ -1,0 +1,22 @@
+<div class="public-recipe-card">
+ 
+    <div class="title-author-container">
+      <span class="card-title">
+        <%= link_to recipe.name, user_recipe_path(id: recipe.id, user_id: recipe.user.id), class:"link" %>
+      </span>
+      <p class="description"><%= recipe.description %></p>
+      <span class="author-text">By <%= recipe.user.name %></span>
+    </div>
+
+    <div class="detailes-container">
+      <p class="text">Total food items: <%= recipe.recipe_foods.length %></p>
+      <p class="text">Total Price: $
+      <% sum = 0 %>
+      <% recipe.recipe_foods.each do |ingredient| %>
+        <% food = Food.find(ingredient.food_id) %>
+        <% sum += food.price * ingredient.quantity %>
+      <% end %>
+      <%= sum %>
+    </div>
+  
+</div>

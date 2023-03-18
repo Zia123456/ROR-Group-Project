@@ -1,0 +1,13 @@
+<div class="main-recipe-container">
+  <h1 class="recipe-text">Recipes</h1>
+  <div class="add-new-recipe-container">
+    <%= link_to "Add New Recipe", new_user_recipe_path, class: "link btn-add-new-recipe" %>
+    <% if @recipes.empty? %>
+      <h2 class="text-center">The list is empty.</h2>
+    <% else %>
+      <% @recipes.each do |recipe| %>
+      <%= render partial: 'recipes/card', locals: { recipe: recipe }  %>
+      <% end %>
+    <% end %>
+  </div>
+</div>

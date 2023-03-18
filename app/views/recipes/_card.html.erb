@@ -1,0 +1,15 @@
+<div class="recipes-container">
+  <div class="recipe-card">
+    <div class="title-btn">
+      <h5 class="title-text">
+        <%= link_to recipe.name, user_recipe_path(id: recipe.id, user_id: recipe.user.id), class: "link" %>
+      </h5>
+      <% if can? :manage, recipe %>
+        <%= button_to "Delete", user_recipe_path(recipe.user, recipe.id), method: :delete, class: "btn-delete" %>
+      <% end %>
+    </div>
+    <div class="recipe-description">
+      <p class="mt-4"><%= recipe.description %></p>
+    </div>
+  </div>  
+</div>

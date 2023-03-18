@@ -1,0 +1,11 @@
+<div class="public-recipe-container">
+<h1 class="text-public-recipes">Public Recipes</h1>
+<section class="container">
+  <% @public_recipes.each do |recipe| %>
+    <%= render partial: 'recipes/public_card', locals: { recipe: recipe }  %>
+  <% end %>
+  <% if @public_recipes.empty? %>
+    <h2 class="text-center">This list is empty</h2>
+  <% end %>
+</section>
+</div>

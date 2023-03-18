@@ -1,0 +1,34 @@
+<div class="shopping-list-container">
+  <h1>Shopping list</h1>
+  <div class="detailes">
+    <p>Amount of food to buy: <%= @result[:missing_items] %></p>
+    <p>Total price of food needed: $<%= @result[:total_price] %></p>
+    <p>Recipe: <%= link_to "#{@result[:recipe_name]}", "/users/#{current_user.id}/recipes/#{@result[:recipe_id]}" %></p>
+    <p>Inventory: <%= link_to "#{@result[:inventory_name]}", "/inventories/#{@result[:inventory_id]}" %></p>
+  </div>
+
+
+  
+  <% if @result[:items] %>
+    <table class="table shopping-list">
+      <thead class="table">
+        <tr class="table">
+          <th class="table">Food</th>
+          <th class="table">Quantity</th>
+          <th class="table">Price</th>
+        </tr>
+      </thead>
+    <tbody>
+        <% @result[:items].each do |item| %>
+          <tr>
+            <td class="table"><%= item[:name] %></td>
+            <td class="table"><%= item[:quantity] %> <%= item[:measurement_unit] %> </td>
+            <td class="table">$<%= item[:price] %></td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+  <% else %>
+    <h2> You have all the ingredients.</h2>
+  <% end %>
+</div>

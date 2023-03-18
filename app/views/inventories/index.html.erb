@@ -1,0 +1,29 @@
+<div class="inventories-container">
+  <% if @inventories.empty? %>
+    <h1>You have no inventories yet</h1>
+       <%= link_to 'Add a new inventory', new_inventory_path, class: "btn-add-new-inventories link" %>
+  <% end %>
+  
+  <% unless @inventories.empty? %>
+    <h2 class="mt-3">Your inventories list:</h2>
+ 
+    <% @inventories.each do |inventory| %>
+      <div class="inventory">
+        <div class="user-delete-btn">
+          <span class="username-text"><%=link_to inventory.name, inventory_path(inventory.id), class: "link" %></span>
+          <%= button_to 'Delete', inventory_path(inventory.id), method: :delete, class: "btn-delete" %>
+        </div>  
+        <div class="description">
+          <p class="description"><%=inventory.description%></p>
+        </div>
+      </div>
+    <% end %>
+  <% end %>
+</div>
+
+
+
+
+
+
+

@@ -1,0 +1,29 @@
+<nav class="nav-container">
+  
+   
+    
+      <ul class="navbar-items-container">
+        <li class="navbar-item">
+          <%= link_to "Public Recipes", root_path, class: "link" %>
+        </li>
+        <% if current_user %>
+        <li class="navbar-item">
+        <% if user_signed_in?%>
+          <%= link_to "My Recipes", "/users/#{current_user.id}/recipes", class: "link" %>
+          <%end%>
+        </li>
+        <% end %>
+        <li class="navbar-item">
+          <%= link_to "Food", foods_path, class: "link" %>
+        </li>
+        <li class="navbar-item">
+          <%= link_to "Inventories", inventories_path, class: "link" %>
+        </li>
+        <li class="navbar-item">
+        <%= link_to "Sign Out", destroy_user_session_path, 'data-turbo-method': :delete, class: "link sign-out-btn" %>
+      </li>
+      </ul>
+      
+    
+
+</nav>

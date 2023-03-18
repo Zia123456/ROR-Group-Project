@@ -13,7 +13,7 @@ class RecipesController < ApplicationController
     @recipe = Recipe.new(recipe_params)
     @recipe.user_id = current_user.id
     if @recipe.save
-      redirect_to user_recipes_path(current_user.id), notice: 'Recipe Added successfully!'
+      redirect_to user_recipes_path(current_user.id), notice: 'recipe added '
     else
       render :show
     end
@@ -25,7 +25,7 @@ class RecipesController < ApplicationController
   def destroy
     @recipe = Recipe.find(params[:id])
     @recipe.destroy
-    redirect_to user_recipes_path(current_user.id), notice: 'Recipe deleted!'
+    redirect_to user_recipes_path(current_user.id), notice: 'recipe delete'
   end
   private
   def recipe_params

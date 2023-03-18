@@ -1,5 +1,5 @@
 <section class="d-flex flex-column align-items-center w-50 mx-auto">
-  <h1 class="text-center">Edit ingredient</h1>
+  <h1 class="text-center">modify ingredient</h1>
     <%= form_with url: user_recipe_recipe_food_path, method: :patch, :html => {:class => "w-50 mt-4"} do |form| %>
       <div class="form-group mt-3">
         <%= form.select :food_id, @foods.collect  {|food| [food.name, food.id]},{ include_blank: false}, class: "form-control", placeholder: "Recipe" %>
@@ -7,6 +7,6 @@
       <div class="form-group mt-3">
         <%= form.number_field :quantity, class: "form-control", placeholder: "Quantity" %>
       </div>
-      <button type="submit" class="btn btn-primary mt-3">Edit</button>
+      <button type="submit" class="btn btn-primary mt-3">modify</button>
     <% end %>
 </section>

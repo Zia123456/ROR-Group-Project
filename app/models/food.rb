@@ -1,7 +1,4 @@
 class Food < ApplicationRecord
-  belongs_to :author, class_name: 'User', foreign_key: 'author_id'
-
-  validates :name, presence: true
-  validates :measurement_unit, presence: true
-  validates :price, presence: true
+  has_many :recipe_food
+  has_many :inventory_food
 end

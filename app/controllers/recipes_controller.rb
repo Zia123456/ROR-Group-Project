@@ -1,66 +1,33 @@
 class RecipesController < ApplicationController
   def index
-    @recipes = Recipe.all
+    @recipes = Recipe.includes([:user]).where(user_id: current_user.id).order(created_at: :desc)
   end
-
-  def show
-    @recipe = Recipe.find(params[:id])
-    @ingredients = RecipeFood.where(recipe_id: @recipe.id)
-    @foods = Food.where(id: @ingredients.map(&:food_id))
+  def public
+    @public_recipes = Recipe.includes([:user]).where(public: true).order(created_at: :desc)
   end
-
   def new
+    @user = current_user
     @recipe = Recipe.new
   end
-
-  def edit
-    @recipe = Recipe.find(params[:id])
-  end
-
   def create
     @recipe = Recipe.new(recipe_params)
-    @recipe.author = current_user
-    # respond_to do |format|
-    #   if @recipe.save
-    #     format.html { redirect_to recipe_url(@recipe), notice: 'recipe made' }
-    #   else
-    #     format.html { render :new, alert: 'error of creating the recipe' }
-    #   end
-    # end
+    @recipe.user_id = current_user.id
     if @recipe.save
-      flash[:notice] = 'recipe created successfully!'
-      redirect_to recipes_path
+      redirect_to user_recipes_path(current_user.id), notice: 'Recipe Added successfully!'
     else
-      flash[:alert] = "Couldn't create recipe!"
-      render :new, status: :unprocessable_entity
+      render :show
     end
   end
-
-  def update
-    @recipe = Recipe.find(params[:id])
-    respond_to do |format|
-      if @recipe.update(recipe_params)
-        format.html { redirect_to recipe_url(@recipe), notice: 'recipe update' }
-      else
-        format.html { render :edit, alert: 'error of updating the recipe' }
-      end
-    end
+  def show
+    @recipe = Recipe.includes([:user]).find(params[:id])
+    @inventories = current_user.inventories
   end
-
-  def public
-    @public_recipes = Recipe.where(public: true)
-  end
-
   def destroy
     @recipe = Recipe.find(params[:id])
     @recipe.destroy
-    respond_to do |format|
-      format.html { redirect_to recipes_url, notice: 'recipe deleted' }
-    end
+    redirect_to user_recipes_path(current_user.id), notice: 'Recipe deleted!'
   end
-
   private
-
   def recipe_params
     params.require(:recipe).permit(:name, :preparation_time, :cooking_time, :description, :public)
   end

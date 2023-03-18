@@ -1,25 +1,25 @@
 <% if flash[:success] %>
-  <div class="alert alert-info mt-4 container-fluid w-50 d-flex flex-column align-items-center" role="alert">
+  <div class="name">
     <p><%= flash[:success] %></p>
   </div>
 <% end %>
-<div class="container-fluid w-50 d-flex flex-column align-items-center">
-  <h1 class="mb-4"><%=@inventory.name%></h1>
-  <%= link_to 'Add food', "/inventory_foods/#{@inventory.id}/new", class: "btn btn-primary align-self-end" %>
-  <table class="table table-striped table-bordered w-100 mt-4">
-    <thead>
-      <tr>
-        <th scope="col">Food</th>
-        <th scope="col">Quantity</th>
-        <th scope="col">Actions</th>
+<div class="single-inventory-container">
+  <h1 class="name"><%=@inventory.name%></h1>
+  <%= link_to 'Add food', "/inventory_foods/#{@inventory.id}/new", class: "link btn-add-gen" %>
+  <table class="table shopping-list">
+    <thead class="table">
+      <tr class="table">
+        <th class="table">Food</th>
+        <th class="table">Quantity</th>
+        <th class="table">Actions</th>
       </tr>
     </thead>
-    <tbody>
+    <tbody class="table">
       <% @foods.each do |food| %>
         <tr>
-          <td><%= food.food.name %></td>
-          <td><%= food.quantity %></td>
-          <td><%= button_to 'Delete', "/inventory_foods/#{@inventory.id}/destroy/#{food.id}", method: :delete, class: "btn btn-outline-danger" %></td>
+          <td class="table"><%= food.food.name %></td>
+          <td class="table"><%= food.quantity %></td>
+          <td class="table"><%= button_to 'Delete', "/inventory_foods/#{@inventory.id}/destroy/#{food.id}", method: :delete, class: "btn-delete" %></td>
         </tr>
       <% end %>
     </tbody>

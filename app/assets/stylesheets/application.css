@@ -15,59 +15,311 @@
  */
 .nav-container {
   height: 40px;
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  justify-content: space-around;
   border-radius: 8px;
   background-color: rgb(5, 195, 212);
 }
 
-.foods-list-container {
-  width: 100%;
-  height: 100%;
+.navbar-items-container {
+  height: 40px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.navbar-item {
+  list-style: none;
+}
+
+.link {
+  font-size: 20px;
+  text-decoration: none;
+  color: black;
+}
+
+.sign-out-btn {
+  border: 1px solid black;
+  border-radius: 4px;
+  padding: 5px;
+  background-color: rgb(209, 111, 7);
+}
+
+.public-recipe-container {
   display: flex;
   flex-direction: column;
   align-items: center;
 }
 
-.foods-table {
-  border: 1px solid rgb(0, 0, 0);
-  width: 600px;
-  height: 30px;
-  text-align: center;
-}
-
-.btn {
-  margin-left: 30%;
-  margin-bottom: 20px;
-}
-
-.add-food-container {
-  width: 100%;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-
-.form-group {
+.public-recipe-card {
+  width: 500px;
+  height: 130px;
   margin-top: 20px;
   display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  border: 1px solid black;
+  border-radius: 8px;
+}
+
+.title-author-container {
+  width: 300px;
+  color: black;
+  font-size: 16px;
+  display: flex;
   flex-direction: column;
+  justify-content: center;
+}
+
+.detailes-container {
+  color: black;
+  font-size: 16px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.recipes-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.recipe-card {
+  height: 100px;
+  width: 500px;
+  margin-top: 20px;
+  display: flex;
+  justify-content: space-around;
+  border: 1px solid black;
+  border-radius: 8px;
+}
+
+.btn-delete {
+  background-color: rgb(240, 136, 136);
+  border-radius: 4px;
+}
+
+.recipe-description {
+  width: 300px;
+  height: 100px;
+}
+
+.main-recipe-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.btn-add-new-recipe {
+  height: 20px;
+  background-color: rgb(2, 190, 2);
+  border: 1px solid black;
+  border-radius: 4px;
+  padding: 3px;
+}
+
+.new-recipe-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .form-control {
-  width: 400px;
+  width: 300px;
   height: 30px;
-  margin-top: 10px;
+  margin-top: 20px;
+  padding-left: 8px;
 }
 
-.btn-primary {
+.form-control-description {
+  width: 300px;
+  height: 60px;
+  margin-top: 20px;
+  padding-left: 8px;
+}
+
+.submit-new-recipe {
+  background-color: rgb(2, 190, 2);
+  padding: 3px;
+  border: 1px solid black;
+  border-radius: 4px;
+}
+
+.foods-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.btn-add-food {
+  background-color: rgb(2, 190, 2);
+  padding: 3px;
+  border: 1px solid black;
+  border-radius: 4px;
+}
+
+.table-container {
+  margin-top: 30px;
+}
+
+.table {
+  border: 1px solid black;
+  padding: 5px;
+}
+
+.add-food-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.form {
+  width: 400px;
+  margin-top: 30px;
+}
+
+.input-container {
+  display: flex;
+  flex-direction: column;
   margin-top: 20px;
 }
-.block{
-  display: block;
+
+.create-food-btn {
+  margin-top: 20px;
+  background-color: rgb(2, 190, 2);
+  padding: 3px;
+  border: 1px solid black;
+  border-radius: 4px;
 }
-.none{
-  display: none;
+
+.inventories-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.btn-add-new-inventories {
+  margin-top: 20px;
+  background-color: rgb(2, 190, 2);
+  padding: 3px;
+  border: 1px solid black;
+  border-radius: 4px;
+}
+
+.inventory {
+  width: 500px;
+  height: 100px;
+  margin-top: 20px;
+  display: flex;
+  justify-content: space-around;
+  border: 1px solid black;
+  border-radius: 8px;
+}
+
+.user-delete-btn {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+}
+
+.description {
+  width: 300px;
+}
+
+.add-inventory-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.btn-submit-inventory {
+  margin-top: 20px;
+  background-color: rgb(2, 190, 2);
+  padding: 3px;
+  border: 1px solid black;
+  border-radius: 4px;
+}
+
+.recipe-details-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.recipe-details {
+  height: 200px;
+  width: 500px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  border: 1px solid black;
+  border-radius: 8px;
+}
+
+.pre-cooking-description {
+  width: 300px;
+}
+
+.recipe-status {
+  margin-top: 20px;
+  margin-right: 20px;
+}
+
+.ing-gen {
+  width: 500px;
+  margin-top: 20px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.btn-add-gen {
+  background-color: rgb(2, 190, 2);
+  padding: 3px;
+  border: 1px solid black;
+  border-radius: 4px;
+}
+
+.form-select {
+  height: 30px;
+  width: 300px;
+}
+
+.shopping-list-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.detailes {
+  width: 500px;
+  height: 150px;
+  border: 1px solid black;
+  border-radius: 8px;
+  padding-left: 20px;
+}
+
+.shopping-list {
+  margin-top: 20px;
+}
+
+.single-inventory-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.inventory-food-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.notice {
+  font-size: 20px;
 }

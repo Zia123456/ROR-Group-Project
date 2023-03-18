@@ -1,7 +1,7 @@
-<section class="d-flex flex-column align-items-center">
-  <h1 class="text-center mb-5">Recipes</h1>
-  <div class="d-flex flex-column">
-    <%= link_to "Add New Recipe", new_user_recipe_path, class: "btn btn-primary mb-2" %>
+<div class="main-recipe-container">
+  <h1 class="recipe-text">Recipes</h1>
+  <div class="add-new-recipe-container">
+    <%= link_to "Add New Recipe", new_user_recipe_path, class: "link btn-add-new-recipe" %>
     <% if @recipes.empty? %>
       <h2 class="text-center">The list is empty.</h2>
     <% else %>
@@ -10,4 +10,4 @@
       <% end %>
     <% end %>
   </div>
-</section>
+</div>

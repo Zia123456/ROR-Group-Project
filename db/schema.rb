@@ -20,7 +20,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_03_18_120156) do
     t.float "price"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.bigint "author_id", null: false
+    t.bigint "author_id"
     t.index ["author_id"], name: "index_foods_on_author_id"
   end
 

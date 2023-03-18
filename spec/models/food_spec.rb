@@ -10,12 +10,12 @@ describe Food do
     subject.name = 'tomato'
     expect(subject.name).to eq 'tomato'
   end
-  it 'measurement_unit field shouldn`t be empty' do
+  it 'measurement_unit field ' do
     subject.measurement_unit = 'KGS'
     expect(subject.measurement_unit).to eq 'KGS'
   end
 
-  it 'price must be an integer greater than or equal to 0' do
+  it 'price must be an integer ' do
     subject.price = 7
     expect(subject.price).to be >= 0
   end

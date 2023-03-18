@@ -15,14 +15,17 @@ class ShoppingListsController < ApplicationController
     p @result
     redirect_to shopping_list_path(result: @result)
   end
+
   def missing_items(recipe_food, inventory_food)
     diff = []
     found = false
     recipe_food.each do |rec_food|
       inventory_food.each do |inv_food|
         next unless rec_food.food_id == inv_food.food_id
+
         found = true
         next unless (rec_food.quantity - inv_food.quantity).positive?
+
         diff << { name: rec_food.food.name, quantity: rec_food.quantity - inv_food.quantity,
                   measurement_unit: rec_food.food.measurement_unit,
                   price: rec_food.food.price * (rec_food.quantity - inv_food.quantity) }
@@ -36,9 +39,11 @@ class ShoppingListsController < ApplicationController
     end
     diff
   end
+
   def show
     @result = params[:result]
   end
+
   def shopping_params
     params.permit(:inventory_id, :recipe_id)
   end

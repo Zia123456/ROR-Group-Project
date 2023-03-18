@@ -1,25 +1,9 @@
-<h1 class="">Public recipes</h1>
-<div>
+<h1 class="text-center mb-5">Public Recipes</h1>
+<section class="d-flex flex-column align-items-center">
   <% @public_recipes.each do |recipe| %>
-    <div class="">
-      <div class="">
-        <h5 class=""><%= recipe.name.capitalize %> recipe</h5>
-        <div class="">
-          <div>
-            <p class="">Total food Items: <%= RecipeFood.where(recipe_id: recipe.id).count %></p>
-            <p class="">Total price: <%= RecipeFood.where(recipe_id: recipe.id).reduce(0) { |sum, f| sum + (f.quantity*Food.find(f.food_id).price).to_f } %></p>
-            <p class=""><span class="">Made by: </span><small class=""><%= User.find_by(id: recipe.author_id).name %></small></p>
-            <% if can? :manage, recipe%>
-              <%= link_to "Details",recipe ,class: ""  %>
-            <% end %>
-          </div>
-          <div class="">
-            <% if can? :manage, recipe %>
-              <%= button_to "Destroy", recipe, method: :delete, class: ""%>
-            <% end %>
-          </div>
-        </div>
-      </div>
-    </div>
+  <%= render partial: 'recipes/public_card', locals: { recipe: recipe }  %>
   <% end %>
-</div>
+  <% if @public_recipes.empty? %>
+    <h2 class="text-center">This list is empty</h2>
+  <% end %>
+</section>

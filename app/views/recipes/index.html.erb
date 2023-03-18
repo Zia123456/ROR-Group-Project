@@ -3,7 +3,7 @@
   <div class="d-flex flex-column">
     <%= link_to "Add New Recipe", new_user_recipe_path, class: "btn btn-primary mb-2" %>
     <% if @recipes.empty? %>
-      <h2 class="text-center">list empty</h2>
+      <h2 class="text-center">The list is empty.</h2>
     <% else %>
       <% @recipes.each do |recipe| %>
       <%= render partial: 'recipes/card', locals: { recipe: recipe }  %>

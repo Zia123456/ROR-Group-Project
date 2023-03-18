@@ -8,9 +8,9 @@ class RecipeFoodsController < ApplicationController
     @recipe = Recipe.find(params[:recipe_id])
     @recipe_food = @recipe.recipe_foods.create(quantity: params[:quantity], food_id: params[:food_id])
     if @recipe_food.save
-      redirect_to user_recipe_url(@recipe.user, @recipe), notice: 'ingredient add successfully'
+      redirect_to user_recipe_url(@recipe.user, @recipe), notice: 'Ingredient has been added successfully!'
     else
-      render :new, alert: 'error'
+      render :new, alert: 'Something went wrong!'
     end
   end
   def edit
@@ -21,16 +21,16 @@ class RecipeFoodsController < ApplicationController
     @recipe_food = RecipeFood.find(params[:id])
     if @recipe_food.update(recipe_update_params)
       redirect_to user_recipe_url(@recipe_food.recipe.user, @recipe_food.recipe),
-                  notice: 'recipe  updat Successfully'
+                  notice: 'Recipe food updated Successfully!'
     else
-      redirect_to user_recipe_url(@recipe_food.recipe.user, @recipe_food.recipe), alert: 'error'
+      redirect_to user_recipe_url(@recipe_food.recipe.user, @recipe_food.recipe), alert: 'Something went wrong!'
     end
   end
   def destroy
     @recipe = Recipe.find(params[:recipe_id])
     @recipe_food = @recipe.recipe_foods.find(params[:id])
     @recipe_food.destroy
-    flash[:notice] = 'ingredient delete'
+    flash[:notice] = 'Ingredient deleted!'
     redirect_to user_recipe_url(@recipe.user, @recipe)
   end
   private
